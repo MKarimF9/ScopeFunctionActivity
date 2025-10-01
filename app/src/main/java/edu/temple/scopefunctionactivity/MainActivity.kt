@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import kotlin.random.Random
+import kotlin.random.nextInt
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         // You can test your helper functions by  calling them from onCreate() and
         // printing their output to the Log, which is visible in the LogCat:
-        // eg. Log.d("function output", getTestDataArray().toString())
+        Log.d("function output", getTestDataArray().toString())
 
         val testArray = getTestDataArray()
 
@@ -51,11 +52,13 @@ class MainActivity : AppCompatActivity() {
     // Look at the final/return value and build the function "working backwards"
 
     // Return a list of random, sorted integers
-    private fun getTestDataArray() : List<Int> {
-        val testArray = MutableList(10){ Random.nextInt()}
-        testArray.sort()
-        return testArray
-    }
+//    private fun getTestDataArray() : List<Int> {
+//        val testArray = MutableList(10){ Random.nextInt()}
+//        testArray.sort()
+//        return testArray
+//    }
+
+    private fun getTestDataArray(): List<Int> = MutableList(10){Random.nextInt()}.apply{ sort()}
 
     private fun averageLessThanMedian(listOfNumbers: List<Double>) : Boolean = listOfNumbers.sorted().let {
         l ->
